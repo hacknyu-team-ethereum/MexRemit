@@ -7,9 +7,30 @@ contract Remittance {
     address public receiver;
     uint256 public amount; 
 
- //   FiatContract price = FiatContract(0x8055d0504666e2B6942BeB8D6014c964658Ca591); // MAINNET ADDRESS
-    FiatContract price = FiatContract(0x2CDe56E5c8235D6360CCbb0c57Ce248Ca9C80909); // TESTNET ADDRESS (ROPSTEN)
+    // MAINNET ADDRESS
+    // FiatContract price = FiatContract(0x8055d0504666e2B6942BeB8D6014c964658Ca591); 
+    // TESTNET ADDRESS (ROPSTEN)
+    FiatContract price = FiatContract(0x2CDe56E5c8235D6360CCbb0c57Ce248Ca9C80909); 
 
+    // **** use events to pass along return values from contract to frontend ****
+    // stores all the data contained when user sends funds
+    event LogSendFunds(address indexed sender, uint timestamp, uint amount);
+
+    // stores all data contained when user submits an answer
+    event LogConvertFunds(uint timestamp, uint amount);
+
+    // stores key to question, address of withdrawer and time stamp
+    event LogReceiveFunds(address receiver, uint timestamp, uint amount);
+
+    modifier onlySender() {
+        require(sender == msg.sender);
+        _;
+    }
+    
+    // modifier onlyReceiver () {
+    //     require(receiver == msg.sender);
+    //     _;
+    // }
     
     constructor (address _sender, address _receiver) public {
        sender = _sender;
@@ -17,10 +38,7 @@ contract Remittance {
        amount = 0;
     }
     
-    
-    
-    
-    function send(address payable _receiver) onlySender() payable public {
+    function send(address payable _receiver) onlySender payable public {
         
         _receiver.transfer(msg.value);
         
@@ -44,34 +62,5 @@ contract Remittance {
     
     // function withdraw() onlyReceiver() public {
         
-    // }
-    
-    
-    
-    
-    modifier onlySender () {
-        require(sender == msg.sender);
-        _;
-    }
-    
-    // modifier onlyReceiver () {
-    //     require(receiver == msg.sender);
-    //     _;
-    // }
-    
-    // **** use events to pass along return values from contract to frontend ****
-    // stores all the data contained when user sends funds
-    event LogSendFunds(address indexed sender, uint timestamp, uint amount);
-
-    // stores all data contained when user submits an answer
-    event LogConvertFunds(uint timestamp, uint amount);
-
-    // stores key to question, address of withdrawer and time stamp
-    event LogReceiveFunds(address receiver, uint timestamp, uint amount);
-    
-    
-    
-    
-    
-    
+    // } 
 }
