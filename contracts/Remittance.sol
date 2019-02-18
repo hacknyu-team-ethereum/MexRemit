@@ -5,7 +5,7 @@ contract Remittance {
    address public sender;
    address public recipient;
   
-   constructor() public {
+   function Remittance() public {
        manager = msg.sender;
        emit ContractCreated(manager, msg.value);
    }
