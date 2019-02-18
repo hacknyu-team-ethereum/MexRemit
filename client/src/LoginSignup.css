@@ -1,0 +1,87 @@
+.wrap {
+    margin: 100px;
+    text-align: center;
+    align-self: center;
+    padding-top: 80px;
+}
+
+#button {
+    padding: 10px;
+    border-spacing: 10px;
+    align-content: center;
+}
+body {
+    margin: auto;
+    width: 60%;
+    border: 4 px dotted #73AD21;
+    padding-top: 40px;
+    align-self: center;
+    background-image: url('back.jpg');
+}
+#prompt{
+    border: 2 px solid green;
+    padding: auto;
+    border-spacing: auto;
+    align-content: center;
+}
+
+#intro {
+    padding-left: 180px;
+    text-align: center;
+    font-size: 30px;
+    white-space: nowrap;
+}
+
+#intro-head {
+    padding-left: 220px;
+    text-align: center;
+    font-size: 30px;
+    white-space: nowrap;
+    margin:auto;
+    font-size: 60px;
+}
+
+#intro-signup {
+    padding-left: 140px;
+    text-align: center;
+    font-size: 30px;
+    white-space: nowrap;
+    margin:auto;
+    font-size: 60px;
+}
+
+
+
+#loginbutton{
+    padding-left: 280px;
+    text-align: center;
+    margin:auto;
+    white-space: nowrap;
+}
+
+#signupbutton{
+    padding-left: 250px;
+    margin:auto;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#usercred{
+    margin: auto;
+    padding-left: 220px;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+#passcred{
+    margin:auto;
+    padding-left: 225px;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+#sprompt{
+    font-weight: bold;
+}
